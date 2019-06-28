@@ -30,10 +30,10 @@ def get_gif(query)
   }
 
   begin
-    result = api_instance.stickers_translate_get(api_key, query, opts)
+    result = api_instance.gifs_search_get(api_key, query, opts)
     case result.meta.status
     when 200
-      result.data.images.fixed_height.url
+      result.data[0].images.fixed_height.url
     else
       "Error #{result.meta.status} - #{result.meta.msg}"
     end
